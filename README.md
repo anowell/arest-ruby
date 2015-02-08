@@ -1,6 +1,12 @@
 # arest-ruby
 Proof-of-concept ruby runner for [arest](https://github.com/anowell/arest)
 
+# Basic idea
+
+- ARest is a simple web service in a container that takes data POSTed to /data and hands it to a "runner" as stdin
+- arunner.rb is a ruby implementation of a "runner" that does some basic transformation of stdin data and calls any arbitrary ruby "executor" with it
+- A ruby "executor" is any class that implements `self.execute(input)`  (the filename should currently be the snake_case name of the class which should be CamelCased)
+
 # Testing standalone
 
     $ ln -s examples/count_by_letter executor
