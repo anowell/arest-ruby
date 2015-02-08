@@ -1,5 +1,5 @@
 # arest-ruby
-Proof-of-concept ruby runner for arest
+Proof-of-concept ruby runner for [arest](https://github.com/anowell/arest)
 
 # Testing standalone
 
