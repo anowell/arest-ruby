@@ -11,13 +11,15 @@ Proof-of-concept ruby runner for [arest](https://github.com/anowell/arest)
 
 # Usage
 
-To run the [anowell/arest-ruby](https://registry.hub.docker.com/u/anowell/arest-ruby/) docker image, you must bind mount the executor to /home/arunner/executor/ and set EXEC_NAME
+To run the [anowell/arest-ruby](https://registry.hub.docker.com/u/anowell/arest-ruby/) docker image, you must bind mount an executor to /home/arunner/executor/ and set EXEC_NAME
 
-    $ docker run -p 8080:8080 -e "EXEC_NAME=count_by_letter" -v `pwd`/examples/count_by_letter:/home/arunner/executor:ro anowell/arest-ruby
+    $ export EXEC_NAME=count_by_letter
+    $ docker run -p 8080:8080 -e EXEC_NAME -v `pwd`/examples/$EXEC_NAME:/home/arunner/executor:ro anowell/arest-ruby
     $ curl -s localhost:8080/data -XPOST -d"hello world"
     /bin/arunner.rb output: ----- Executor Output -----
     {"h"=>1, "e"=>1, "l"=>3, "o"=>2, "w"=>1, "r"=>1, "d"=>1}
 
+Any dependencies specified in a Gemfile will be installed when the container first starts. See [build_stem_set](examples/build_stem_set) for an example with dependencies.
 
 # Testing standalone
 
