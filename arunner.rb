@@ -27,7 +27,7 @@ class ARunner
     end
 end
 
-# Start ARunner with the STDIN from ARest
+# Start ARunner with the STDIN from Servur
 output = ARunner.run(STDIN.read)
 
 # Do something useful with the output, for now: STDOUT

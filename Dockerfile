@@ -1,4 +1,4 @@
-FROM anowell/arest
+FROM anowell/servur
 
 RUN apt-get update && \
     apt-get install -y software-properties-common && \
